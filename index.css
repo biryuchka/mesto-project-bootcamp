@@ -32,4 +32,10 @@
 
 @import "blocks/popup/popup.css";
 @import "blocks/popup/__container/popup__container.css";
+@import "blocks/popup/__close-btn/popup__close-btn.css";
+@import "blocks/popup/__close-btn/_hover/popup__close-btn_hover.css";
 @import "blocks/popup/__title/popup__title.css";
+@import "blocks/popup/__form/popup__form.css";
+@import "blocks/popup/__form/_input/popup__form_input.css";
+@import "blocks/popup/__form/_submit-btn/popup__form_submit-btn.css";
+@import "blocks/popup/__form/_submit-btn/_hover/popup__form_submit-btn_hover.css";
