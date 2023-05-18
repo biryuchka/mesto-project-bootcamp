@@ -4,6 +4,7 @@
   width: calc(100% - 2*200px);
   display: flex;
   margin: 0 auto;
+  margin-bottom: 40px;
   flex-direction: column;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
@@ -25,15 +26,7 @@
     padding-top: 28px;
     width: 100%;
     margin: 0;
-  }
-}
-
-.header {
-  margin-bottom: 40px;
-}
-
-@media screen and (max-width: 480px) {
-  .header {
     margin-bottom: 38.25px;
   }
 }
+

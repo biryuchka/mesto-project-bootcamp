@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -14,7 +14,7 @@
     <main class="content">
       <section class="profile">
         <div class="profile__card">
-          <img class="profile__avatar-image"src="images/profile-img.jpg" alt="Профиль">
+          <img class="profile__avatar-image" src="images/profile-img.jpg" alt="Профиль">
           <div class="profile__info">
             <h1 class="profile__title">Жак&#8209;Ив&nbsp;Кусто</h1>
             <button type="button" class="profile__edit-button"></button>
@@ -28,15 +28,15 @@
         <article class="element">
           <img class="element__image" src="images/element-orenburg.jpg" alt="Оренбург">
           <div class="element__bottom-block">
-            <h3 class="element__title">Оренбург</h3>
-            <button type="button" class="element__like-btn element__like-btn_active"></button>
+            <h2 class="element__title">Оренбург</h2>
+            <button type="button" class="element__like-btn"></button>
           </div>
         </article>
 
         <article class="element">
           <img class="element__image" src="images/element-mountain-elbrus.jpg" alt="Эльбрус">
           <div class="element__bottom-block">
-            <h3 class="element__title">Гора Эльбрус</h3>
+            <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__like-btn"></button>
           </div>
         </article>
@@ -44,7 +44,7 @@
         <article class="element">
           <img class="element__image" src="images/element-dombai.jpg" alt="Домбай">
           <div class="element__bottom-block">
-            <h3 class="element__title">Домбай</h3>
+            <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__like-btn"></button>
           </div>
         </article>
@@ -52,7 +52,7 @@
         <article class="element">
           <img class="element__image" src="images/element-kamchatka.jpg" alt="Камчатка">
           <div class="element__bottom-block">
-            <h3 class="element__title">Камчатка</h3>
+            <h2 class="element__title">Камчатка</h2>
             <button type="button" class="element__like-btn"></button>
           </div>
         </article>
@@ -60,7 +60,7 @@
         <article class="element">
           <img class="element__image" src="images/element-karelia.jpg" alt="Карелия">
           <div class="element__bottom-block">
-            <h3 class="element__title">Карелия</h3>
+            <h2 class="element__title">Карелия</h2>
             <button type="button" class="element__like-btn"></button>
           </div>
         </article>
@@ -68,7 +68,7 @@
         <article class="element">
           <img class="element__image" src="images/element-karachaevo.jpg" alt="Карачаево-Черкесия">
           <div class="element__bottom-block">
-            <h3 class="element__title">Карачаево-Черкесия</h3>
+            <h2 class="element__title">Карачаево-Черкесия</h2>
             <button type="button" class="element__like-btn"></button>
           </div>
         </article>
@@ -85,9 +85,9 @@
         <button type="button" class="popup__close-btn"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit-form" method="GET" action="#">
-          <input class="popup__form_input" type="text" name="name" value="Жак-Ив Кусто" id="name">
-          <input class="popup__form_input" type="text" name="description" value="Исследователь океана" id="description">
-          <button type="submit" class="popup__form_submit-btn">Сохранить</button>
+          <input class="popup__form-input" type="text" name="name" placeholder="Имя" id="name">
+          <input class="popup__form-input" type="text" name="description" placeholder="О себе" id="description">
+          <button type="submit" class="popup__submit-btn">Сохранить</button>
         </form>
       </div>
     </div>

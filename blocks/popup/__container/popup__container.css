@@ -7,7 +7,7 @@
   border-radius: 10px;
   padding: 34px 36px 37px;
   box-sizing: border-box;
-  position: fixed;
+  position: relative;
   margin: 0 auto;
 }
   
