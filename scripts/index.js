@@ -81,3 +81,10 @@ formCard.addEventListener('submit', submitFormCard);
 buttonImageClose.addEventListener('click', function(){
     closePopup(popupImage)
 });
+
+function makeCards() {
+  for (let i = 0; i < initialCards.length; ++i) {
+    NewCard(initialCards[i].name, initialCards[i].link);
+  }
+}
+makeCards()
