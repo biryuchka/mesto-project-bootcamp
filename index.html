@@ -32,27 +32,50 @@
       <p class="footer__copyright">&copy;2023 Mesto Russia</p>
     </footer>
 
-    <template id="element">
-      <article class="element">
-        <img class="element__image" src="./images/element-orenburg.jpg" alt="Оренбург">
-        <div class="element__bottom-block">
-          <h2 class="element__title">Оренбург</h2>
-          <button type="button" class="element__like-btn"></button>
-        </div>
-      </article>
-    </template>
     <!-- чтобы открыть блок, добавить модификатор popup_opened -->
-    <div class="popup popup__profile">
+    <div class="popup popup_profile">
       <div class="popup__container">
-        <button id="popup__id"type="button" class="popup__close-btn"></button>
+        <button id="popup__id" type="button" class="popup__close-btn"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form profile__form" name="edit-form" method="GET" action="#">
-          <input class="popup__form-input profile__name" type="text" name="name" placeholder="Имя" id="name">
-          <input class="popup__form-input profile__description" type="text" name="description" placeholder="О себе" id="description">
+        <form class="popup__form form_profile" name="edit-form" method="GET" action="#">
+          <input class="popup__form-input" type="text" name="name" placeholder="Имя" id="name">
+          <input class="popup__form-input" typopup_type_showpe="text" name="description" placeholder="О себе" id="description">
           <button type="submit" class="popup__submit-btn">Сохранить</button>
         </form>
       </div>
     </div>
-    <script src="index.js"></script>
+
+    <div class="popup popup_card">
+      <div class="popup__container">
+        <button id="popup__id" type="button" class="popup__close-btn"></button>
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form form_card" name="edit-form" method="GET" action="#">
+          <input class="popup__form-input" type="text" name="name" placeholder="Название" id="name">
+          <input class="popup__form-input" type="text" name="photo" placeholder="Ссылка на картинку" id="">
+          <button type="submit" class="popup__submit-btn">Создать</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_show-card">
+      <div class="popup__container-card">
+        <button id="popup__id" type="button" class="popup__close-btn"></button>
+        <img src="#" alt="" class="popup__image">
+        <h2 class="popup__title popup__title_show-card"></h2>
+      </div>
+    </div>
+
+    <template id="element">
+      <article class="element">
+        <button type="button" class="element__delete-btn"></button>
+        <img class="element__image" src="#" alt="">
+        <div class="element__bottom-block">
+          <h2 class="element__title"></h2>
+          <button type="button" class="element__like-btn"></button>
+        </div>
+      </article>
+    </template>
+    <script src="scripts/cards.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
