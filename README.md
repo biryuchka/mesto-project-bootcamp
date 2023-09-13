@@ -5,6 +5,9 @@
 **HTML**
 * Семантические теги
 
+**JavaScript**
+* Обработка событий
+
 **CSS**
 * Flexbox
 * Grid-layout
