@@ -25,6 +25,8 @@ const buttonImageClose = popupImage.querySelector('.popup__close-btn')
 const imgImagePopup = popupImage.querySelector('.popup__image')
 const titleImagePopup = popupImage.querySelector('.popup__title')
 
+const popupList = [popupProfile, popupCard, popupImage]
+
 function createCard(card_) {
   const newCard = template.cloneNode(true);
   const buttonLike = newCard.querySelector('.element__like-btn');
@@ -55,9 +57,29 @@ function renderCard(object) {
 
 function closePopup(popup_) {
     popup_.classList.remove('popup_opened');
+    document.removeEventListener('keydown', handleEscape)
 }
 function openPopup(popup_) {
     popup_.classList.add('popup_opened');
+    document.addEventListener('keydown', handleEscape)
+}
+
+function handleEscape(event) {
+  if (event.key === 'Escape') {
+    popupList.forEach((popup_) => {
+      if (popup_.classList.contains('popup_opened')) {
+        closePopup(popup_)
+      }
+    })
+  }
+}
+
+function handleOverlay(popup_) {
+  popup_.addEventListener('mousedown', (event) => {
+    if (event.target.classList.contains('popup_opened')) {
+      closePopup(popup_);
+    }
+  })
 }
 
 buttonProfileEdit.addEventListener('click', function(){
@@ -92,3 +114,5 @@ function makeCards() {
   initialCards.forEach(renderCard) 
 }
 makeCards()
+
+popupList.forEach(handleOverlay)
