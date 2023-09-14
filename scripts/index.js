@@ -25,16 +25,15 @@ const buttonImageClose = popupImage.querySelector('.popup__close-btn')
 const imgImagePopup = popupImage.querySelector('.popup__image')
 const titleImagePopup = popupImage.querySelector('.popup__title')
 
-function NewCard(title_, src_) {
+function createCard(card_) {
   const newCard = template.cloneNode(true);
   const buttonLike = newCard.querySelector('.element__like-btn');
   const buttonDelete = newCard.querySelector('.element__delete-btn');
   const imgCard = newCard.querySelector('.element__image');
   const titleCard = newCard.querySelector('.element__title');
-  titleCard.textContent = title_;
-  imgCard.src = src_;
-  imgCard.alt = title_;
-  elements.insertBefore(newCard, elements.firstChild);
+  titleCard.textContent = card_.name;
+  imgCard.src = card_.link;
+  imgCard.alt = card_.name;
   buttonLike.addEventListener('click', function() {
     buttonLike.classList.toggle('element__like-btn_active');
   });
@@ -42,12 +41,18 @@ function NewCard(title_, src_) {
     newCard.remove();
   });
   imgCard.addEventListener('click', function() {
-    imgImagePopup.alt = title_;
-    imgImagePopup.src = src_;
-    titleImagePopup.textContent = title_;
+    imgImagePopup.alt = card_.name;
+    imgImagePopup.src = card_.link;
+    titleImagePopup.textContent = card_.name;
     openPopup(popupImage)
   });
+  return newCard
 }
+function renderCard(object) {
+  const newCard = createCard(object);
+  elements.prepend(newCard);
+}
+
 function closePopup(popup_) {
     popup_.classList.remove('popup_opened');
 }
@@ -72,7 +77,8 @@ buttonAddCard.addEventListener('click', function(){ openPopup(popupCard) });
 buttonCardClose.addEventListener('click', function(){ closePopup(popupCard) });
 function submitFormCard(event) {
     event.preventDefault();
-    NewCard(inputCard.value, inputPhoto.value);
+    const card_ = {name : inputCard.value, link: inputPhoto.value}
+    renderCard(card_)
     inputCard.value = ""
     inputPhoto.value = ""
     closePopup(popupCard)
@@ -83,8 +89,6 @@ buttonImageClose.addEventListener('click', function(){
 });
 
 function makeCards() {
-  for (let i = 0; i < initialCards.length; ++i) {
-    NewCard(initialCards[i].name, initialCards[i].link);
-  }
+  initialCards.forEach(renderCard) 
 }
 makeCards()
