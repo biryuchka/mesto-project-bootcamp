@@ -1,0 +1,16 @@
+.popup__form-error {
+  height: 26.5px;
+  padding-top: 4px;
+  visibility: hidden;
+  color: red;
+  font: Inter;
+  font-size: 12px;
+  line-height: 14.52px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 480px) {
+  .popup__form-error {
+    margin-bottom: 3px;
+  }
+}
