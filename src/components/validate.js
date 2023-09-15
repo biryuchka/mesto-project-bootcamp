@@ -6,7 +6,7 @@ function isValid (form, input, inputErrorClass, errorClass) {
   }
 }; 
 
-function isInvalid (form, inputs, submitBtnSelector, inactiveBtnClass){
+function isInvalid (form, inputs, submitBtnSelector, inactiveBtnClass) {
   let invalid = false;
   const submitBtn = form.querySelector(submitBtnSelector);
   inputs.forEach((input_) => {
@@ -14,7 +14,6 @@ function isInvalid (form, inputs, submitBtnSelector, inactiveBtnClass){
           invalid = true;
       }
   })
-  
   if (invalid) {
       submitBtn.classList.add(inactiveBtnClass);
   } else {
