@@ -1,5 +1,5 @@
 import { buttonProfileEdit, buttonProfileClose, formProfile,
-        buttonAddCard, buttonCardClose, formCard,
+        buttonAddCard, buttonCardClose, formCard, buttonImageClose,
         popupCard, popupImage, popupProfile, popupList, 
         inputProfile, inputDescription, profileName, profileDescription} from "./components/constants";
 
