@@ -1,3 +1,14 @@
+export const clearErrors=(popup, inputErrorClass, errorClass) => {
+  const forms = Array.from(popup.querySelectorAll(`.${errorClass}`))
+  forms.forEach((form_) => {
+    form_.classList.remove(errorClass);
+  })
+  const inputs = Array.from(popup.querySelectorAll(`.${inputErrorClass}`))
+  inputs.forEach((input_) => {
+    input_.classList.remove(inputErrorClass);
+  })
+}
+
 function isValid (form, input, inputErrorClass, errorClass) {
   if (input.validity.valid) {
     clearInputError(form, input, inputErrorClass, errorClass);
@@ -51,13 +62,14 @@ function setFormEventListeners(
   form.addEventListener('input', () => { isInvalid(form, inputs, submitBtnSelector, inactiveBtnClass) });
 }
 
-export function enableValidation (
+export function enableValidation ({
   formSelector,
   inputSelector,
   submitBtnSelector,
   inactiveBtnClass,
   inputErrorClass,
-  errorClass) {
+  errorClass
+}) {
   const forms = Array.from(document.querySelectorAll(formSelector));
   forms.forEach((form) => {      
     setFormEventListeners(form,

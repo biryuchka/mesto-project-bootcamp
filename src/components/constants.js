@@ -24,3 +24,12 @@ export const imgImagePopup = popupImage.querySelector('.popup__image')
 export const titleImagePopup = popupImage.querySelector('.popup__title')
 
 export const popupList = [popupProfile, popupCard, popupImage]
+
+export const validationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__form-input',
+    submitBtnSelector: '.popup__submit-btn',
+    inactiveBtnClass: 'popup__submit-btn_disabled',
+    inputErrorClass: 'popup__form-input_error',
+    errorClass: 'popup__form-error_active'
+  }

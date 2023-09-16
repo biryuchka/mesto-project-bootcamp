@@ -3,38 +3,43 @@ import logo_header from './images/logo_header.svg'
 import './pages/index.css';
 
 
-import { buttonProfileEdit, buttonAddCard } from './components/constants.js'
+import { elements, validationConfig, buttonProfileEdit, buttonAddCard, inputTitle, inputLink } from './components/constants.js'
 import { popupProfile, buttonProfileClose, profileName, profileDescription, inputProfile, inputDescription, formProfile } from './components/constants.js'
 import { popupCard, buttonCardClose, formCard,} from './components/constants.js';
-import { popupImage, buttonImageClose, popupList } from './components/constants.js';
+import { popupImage, buttonImageClose } from './components/constants.js';
 
 import { enableValidation } from "./components/validate.js";
-import { renderCard, closePopup, openPopup, handleOverlay, submitFormCard, submitFormProfile} from './components/modal.js';
-import { initialCards } from "./components/cards.js"         
+import { closePopup, openProdilePopup, openCardPopup} from './components/modal.js';
+import { initialCards, createCard } from "./components/cards.js"   
 
-enableValidation(
-  '.popup__form',
-  '.popup__form-input',
-  '.popup__submit-btn',
-  'popup__submit-btn_disabled',
-  'popup__form-input_error',
-  'popup__form-error_active'
-);
+const submitFormProfile=(event) => {
+  event.preventDefault();
+  profileName.textContent = inputProfile.value;
+  profileDescription.textContent = inputDescription.value;
+  closePopup(popupProfile)
+}
+const submitFormCard=(event) => {
+  event.preventDefault();
+  const card_ = {name : inputTitle.value, link: inputLink.value}
+  renderCard(card_)
+  inputTitle.value = ""
+  inputLink.value = ""
+  closePopup(popupCard)
+}
 
-buttonProfileEdit.addEventListener('click', function(){
-    inputProfile.value = profileName.textContent;
-    inputDescription.value = profileDescription.textContent;
-    openPopup(popupProfile) 
-});
-buttonProfileClose.addEventListener('click', function(){ closePopup(popupProfile) });
+const renderCard=(object) => {
+  const newCard = createCard(object);
+  elements.prepend(newCard);
+}
+
+enableValidation(validationConfig);
+
+buttonProfileEdit.addEventListener('click', openProdilePopup);
+buttonAddCard.addEventListener('click', openCardPopup);
+buttonProfileClose.addEventListener('click', function(){ closePopup(popupProfile); });
+buttonCardClose.addEventListener('click', function() { closePopup(popupCard); });
+buttonImageClose.addEventListener('click', function() { closePopup(popupImage) });
 formProfile.addEventListener('submit', submitFormProfile);
-buttonAddCard.addEventListener('click', function(){ openPopup(popupCard) });
-buttonCardClose.addEventListener('click', function(){ closePopup(popupCard) });
 formCard.addEventListener('submit', submitFormCard);
-buttonImageClose.addEventListener('click', function(){
-    closePopup(popupImage)
-});
-
 initialCards.forEach(renderCard) 
-popupList.forEach(handleOverlay)
 
