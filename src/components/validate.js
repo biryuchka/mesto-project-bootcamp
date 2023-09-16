@@ -8,7 +8,7 @@ function isValid (form, input, inputErrorClass, errorClass) {
 
 function isInvalid (form, inputs, submitBtnSelector, inactiveBtnClass) {
   let invalid = false;
-  const submitBtn = form.querySelector(submitBtnSelector);
+  const submitBtn = form.querySelector(`${submitBtnSelector}`);
   inputs.forEach((input_) => {
       if (!input_.validity.valid) {
           invalid = true;
@@ -19,7 +19,7 @@ function isInvalid (form, inputs, submitBtnSelector, inactiveBtnClass) {
   } else {
       submitBtn.classList.remove(inactiveBtnClass);
   }
-  formBtn.disabled = invalid;
+  submitBtn.disabled = invalid;
 };
 
 function showInputError (form, input, errorText, inputErrorClass, errorClass) {
@@ -42,7 +42,8 @@ function setFormEventListeners(
   submitBtnSelector,
   inactiveBtnClass,
   inputErrorClass,
-  errorClass ) {
+  errorClass) 
+  {
   const inputs = Array.from(form.querySelectorAll(inputSelector));
   inputs.forEach((input_) => {
     input_.addEventListener('input', () => { isValid(form, input_, inputErrorClass, errorClass) });
@@ -50,20 +51,20 @@ function setFormEventListeners(
   form.addEventListener('input', () => { isInvalid(form, inputs, submitBtnSelector, inactiveBtnClass) });
 }
 
-export function enableValidation ({
+export function enableValidation (
   formSelector,
   inputSelector,
   submitBtnSelector,
   inactiveBtnClass,
   inputErrorClass,
-  errorClass}) {
+  errorClass) {
   const forms = Array.from(document.querySelectorAll(formSelector));
-  forms.forEach((form_) => {      
-      setFormEventListeners(form_,
-        inputSelector,
-        submitBtnSelector,
-        inactiveBtnClass,
-        inputErrorClass,
-        errorClass)
-  });
+  forms.forEach((form) => {      
+    setFormEventListeners(form,
+                          inputSelector,
+                          submitBtnSelector,
+                          inactiveBtnClass,
+                          inputErrorClass,
+                          errorClass )
+  })
 };

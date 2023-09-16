@@ -7,6 +7,9 @@
 
 **JavaScript**
 * Обработка событий
+* Валидация форм
+
+**Webpack**
 
 **CSS**
 * Flexbox
