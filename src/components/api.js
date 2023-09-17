@@ -31,8 +31,7 @@ export const updateProfileInfo=(name, about) => {
       about: about
     })
   })
-  .then(res => checkResponse(res))
-  .catch(err => console.log(err));
+  .then(res => checkResponse(res));
 }
 
 

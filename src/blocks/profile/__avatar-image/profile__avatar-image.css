@@ -7,6 +7,9 @@
   background-position: center;
   position: relative;
   object-position: center;
+  box-shadow: none;
+  border:none!important;
+  z-index: 1;
 }
 
 @media screen and (max-width: 580px) {

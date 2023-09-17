@@ -45,6 +45,6 @@ export let user = {
   "name": "Жак‑Ив Кусто",
   "about": "Исследователь океана",
   "avatar": "https://pictures.s3.yandex.net/frontend-developer/ava.jpg",
-  "_id": "e20537ed11237f86bbb20ccb",
+  "_id": "",
   "cohort": "cohort0"
 }  

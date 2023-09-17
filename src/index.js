@@ -1,6 +1,5 @@
 import './pages/index.css';
 
-
 import { elements, validationConfig, buttonProfileEdit, buttonAddCard, inputTitle, inputLink, imgAvatar } from './components/constants.js'
 import { popupProfile, buttonProfileClose, profileName, profileDescription, inputProfile, inputDescription, formProfile } from './components/constants.js'
 import { popupCard, buttonCardClose, formCard,} from './components/constants.js';
@@ -8,11 +7,42 @@ import { popupImage, buttonImageClose } from './components/constants.js';
 import { popupAvatar, buttonAvatarClose, buttonAvatar, inputAvatar, formAvatar } from './components/constants.js';
 import { user } from './components/constants.js';
 
+import { clearErrors } from "./components/validate.js";
 import { enableValidation } from "./components/validate.js";
-import { closePopup, openProdilePopup, openCardPopup, openAvatarPopup} from './components/modal.js';
+import { closePopupImage, closePopup, openPopup } from './components/modal.js';
 import { createCard } from "./components/cards.js"   
 import { updateProfileInfo, addCard, changeAvatar, 
          getProfileInfo, getCards } from "./components/api.js";
+
+
+const openProdilePopup=() => {
+  clearErrors(popupProfile, validationConfig.inputErrorClass, validationConfig.errorClass)
+  inputProfile.value = profileName.textContent;
+  inputDescription.value = profileDescription.textContent;
+  const submitBtn = popupProfile.querySelector(validationConfig.submitBtnSelector);
+  submitBtn.classList.remove(validationConfig.inactiveBtnClass);
+  submitBtn.disabled = false;
+  openPopup(popupProfile) 
+}
+
+const openCardPopup=() => { 
+  clearErrors(popupCard, validationConfig.inputErrorClass, validationConfig.errorClass)
+  inputTitle.value = "";
+  inputLink.value = "";
+  const submitBtn = popupCard.querySelector(validationConfig.submitBtnSelector);
+  submitBtn.classList.add(validationConfig.inactiveBtnClass);
+  submitBtn.disabled = true;
+  openPopup(popupCard);
+}
+
+const openAvatarPopup=() => {
+  clearErrors(popupAvatar, validationConfig.inputErrorClass, validationConfig.errorClass)
+  inputAvatar.value = "";
+  const submitBtn = popupAvatar.querySelector(validationConfig.submitBtnSelector);
+  submitBtn.classList.add(validationConfig.inactiveBtnClass);
+  submitBtn.disabled = true;
+  openPopup(popupAvatar);
+}         
 
 
 function changeUser_toInfo(info) {
@@ -20,8 +50,6 @@ function changeUser_toInfo(info) {
   user.avatar = info.avatar;
   user.name = info.name;
   user.about = info.about;
-  inputProfile.value = info.name;
-  inputDescription.value = info.about;
   profileName.textContent = info.name;
   profileDescription.textContent = info.about;
   imgAvatar.src = info.avatar;
@@ -37,8 +65,8 @@ const submitFormProfile=(event) => {
     changeUser_toInfo(info);
     closePopup(popupProfile);
   })
+  .catch(err => console.log(err))
   .finally(() => submitBtn.textContent = "Сохранить")
-  .catch(err => console.log(err));
 }
 const submitFormCard=(event) => {
   event.preventDefault();
@@ -90,7 +118,7 @@ buttonAvatar.addEventListener('click', openAvatarPopup);
 buttonProfileClose.addEventListener('click', function(){ closePopup(popupProfile); });
 buttonAvatarClose.addEventListener('click', function(){ closePopup(popupAvatar); });
 buttonCardClose.addEventListener('click', function() { closePopup(popupCard); });
-buttonImageClose.addEventListener('click', function() { closePopup(popupImage) });
+buttonImageClose.addEventListener('click', closePopupImage);
 formProfile.addEventListener('submit', submitFormProfile);
 formCard.addEventListener('submit', submitFormCard);
 formAvatar.addEventListener('submit', submitFormAvatar);

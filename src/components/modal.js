@@ -1,44 +1,21 @@
-import { popupList, profileName, profileDescription, inputProfile, inputDescription, 
+import { popupImage, popupList, profileName, profileDescription, inputProfile, inputDescription, 
   popupProfile, inputTitle, inputLink, popupCard, inputAvatar, popupAvatar, validationConfig} from "./constants"
 
-import { clearErrors } from "./validate.js";
 import { user } from './constants.js';
+
+export const closePopupImage=() => {
+  popupImage.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscape)
+}
 
 export const closePopup=(popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscape)
-  clearErrors(popup, validationConfig.inputErrorClass, validationConfig.errorClass)
 }
 
 export const openPopup=(popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscape)
-}
-
-export const openProdilePopup=() => {
-  inputProfile.value = profileName.textContent;
-  inputDescription.value = profileDescription.textContent;
-  const submitBtn = popupProfile.querySelector(validationConfig.submitBtnSelector);
-  submitBtn.classList.remove(validationConfig.inactiveBtnClass);
-  submitBtn.disabled = false;
-  openPopup(popupProfile) 
-}
-
-export const openCardPopup=() => { 
-  inputTitle.value = "";
-  inputLink.value = "";
-  const submitBtn = popupCard.querySelector(validationConfig.submitBtnSelector);
-  submitBtn.classList.add(validationConfig.inactiveBtnClass);
-  submitBtn.disabled = true;
-  openPopup(popupCard);
-}
-
-export const openAvatarPopup=() => {
-  inputAvatar.value = "";
-  const submitBtn = popupCard.querySelector(validationConfig.submitBtnSelector);
-  submitBtn.classList.add(validationConfig.inactiveBtnClass);
-  submitBtn.disabled = true;
-  openPopup(popupAvatar);
 }
 
 function handleEscape(event) {

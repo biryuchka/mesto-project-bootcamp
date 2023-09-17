@@ -8,16 +8,17 @@ const handleLikes=(id, likesNum, buttonLike) => {
     removeLike(id)
     .then((element) => {
       likesNum.textContent = element.likes.length;
+      buttonLike.classList.remove('element__like-btn_active');
     })
     .catch(err => console.log(err))
   } else {
     addLike(id)
     .then((element) => {
       likesNum.textContent = element.likes.length;
+      buttonLike.classList.add('element__like-btn_active');
     })
     .catch(err => console.log(err))
   }
-  buttonLike.classList.toggle('element__like-btn_active');
 }
 
 function handleRemove(card, id) {
