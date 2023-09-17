@@ -19,3 +19,7 @@
 .element__delete-btn:hover {
   opacity: 0.6;
 }
+
+.element__delete-btn:disabled {
+  display: none;
+}

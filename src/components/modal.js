@@ -1,8 +1,8 @@
 import { popupList, profileName, profileDescription, inputProfile, inputDescription, 
-  popupProfile, inputTitle, inputLink, popupCard, validationConfig} from "./constants"
+  popupProfile, inputTitle, inputLink, popupCard, inputAvatar, popupAvatar, validationConfig} from "./constants"
 
-import { clearErrors } from "./validate";
-
+import { clearErrors } from "./validate.js";
+import { user } from './constants.js';
 
 export const closePopup=(popup) => {
   popup.classList.remove('popup_opened');
@@ -31,6 +31,14 @@ export const openCardPopup=() => {
   submitBtn.classList.add(validationConfig.inactiveBtnClass);
   submitBtn.disabled = true;
   openPopup(popupCard);
+}
+
+export const openAvatarPopup=() => {
+  inputAvatar.value = "";
+  const submitBtn = popupCard.querySelector(validationConfig.submitBtnSelector);
+  submitBtn.classList.add(validationConfig.inactiveBtnClass);
+  submitBtn.disabled = true;
+  openPopup(popupAvatar);
 }
 
 function handleEscape(event) {

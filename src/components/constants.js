@@ -23,7 +23,14 @@ export const buttonImageClose = popupImage.querySelector('.popup__close-btn')
 export const imgImagePopup = popupImage.querySelector('.popup__image')
 export const titleImagePopup = popupImage.querySelector('.popup__title')
 
-export const popupList = [popupProfile, popupCard, popupImage]
+export const popupAvatar = document.querySelector('.popup_avatar')
+export const buttonAvatarClose = popupAvatar.querySelector('.popup__close-btn')
+export const inputAvatar = popupAvatar.querySelector('input[name="avatar"]')
+export const formAvatar = popupAvatar.querySelector('.form_avatar')
+export const buttonAvatar = profile.querySelector('.profile__avatar')
+export const imgAvatar = profile.querySelector('.profile__avatar-image')
+
+export const popupList = [popupProfile, popupCard, popupImage, popupAvatar]
 
 export const validationConfig = {
     formSelector: '.popup__form',
@@ -33,3 +40,11 @@ export const validationConfig = {
     inputErrorClass: 'popup__form-input_error',
     errorClass: 'popup__form-error_active'
   }
+
+export let user = {
+  "name": "Жак‑Ив Кусто",
+  "about": "Исследователь океана",
+  "avatar": "https://pictures.s3.yandex.net/frontend-developer/ava.jpg",
+  "_id": "e20537ed11237f86bbb20ccb",
+  "cohort": "cohort0"
+}  
