@@ -9,11 +9,12 @@
 </head>
 <body class="page">
     <header class="header">
-      <img class="header__logo" src="<%=require('./images/logo_header.svg')%>" alt="Логотип">
+      <img class="header__logo" src="" alt="Логотип">
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__card">
+          <img class="profile__avatar">
           <img class="profile__avatar-image" src="<%=require('./images/profile_img.jpg')%>" alt="Профиль">
           <div class="profile__info">
             <h1 class="profile__title">Жак&#8209;Ив&nbsp;Кусто</h1>
@@ -107,13 +108,38 @@
       </div>
     </div>
 
+
+    <div class="popup popup_avatar">
+      <div class="popup__container">
+        <button id="popup__id" type="button" class="popup__close-btn"></button>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="popup__form form_avatar" name="edit-form" novalidate>
+          <label class="popup__input-wrapper">
+            <input
+            class="popup__form-input popup__form-input_type_avatar"
+            type="url"
+            name="avatar"
+            placeholder="Ссылка на картинку"
+            id="avatar"
+            required>
+            <span class="popup__form-error popup__form-error_bottom  avatar-error"></span>
+          </label>
+          <button type="submit" class="popup__submit-btn popup__submit-btn_disabled">Создать</button>
+        </form>
+      </div>
+    </div>
+
+
     <template id="element">
       <article class="element">
         <button type="button" class="element__delete-btn"></button>
         <img class="element__image" src="#" alt="">
         <div class="element__bottom-block">
           <h2 class="element__title"></h2>
-          <button type="button" class="element__like-btn"></button>
+          <div class="element__likes-block">
+            <button type="button" class="element__like-btn"></button>
+            <p class="element__like-num"></p>
+          </div>
         </div>
       </article>
     </template>

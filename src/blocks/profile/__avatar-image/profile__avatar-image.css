@@ -5,6 +5,8 @@
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
+  position: relative;
+  object-position: center;
 }
 
 @media screen and (max-width: 580px) {
